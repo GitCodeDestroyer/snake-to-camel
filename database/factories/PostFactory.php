@@ -4,9 +4,11 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Foundation\Testing\WithFaker;
 
 class PostFactory extends Factory
 {
+    use WithFaker;
     /**
      * The name of the factory's corresponding model.
      *
@@ -22,8 +24,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'post_title' => $faker->sentence,
-            'post_body' => $faker->longText,
+            'post_title' => $this->faker->sentence(),
+            'post_body' => $this->faker->sentence(),
         ];
     }
 }
