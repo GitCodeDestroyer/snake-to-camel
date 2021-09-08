@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('post_title');
             $table->text('post_body');
 
-            $table->unsignedBigIncrements('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')
