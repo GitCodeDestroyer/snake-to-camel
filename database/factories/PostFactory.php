@@ -22,7 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'post_title' => $faker->sentence,
+            'post_body' => $faker->longText,
         ];
     }
 }
