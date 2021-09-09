@@ -4,35 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-/*
-    First Way: with eloquence package
-*/
-use \Eloquence\Behaviours\CamelCasing;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory;
-    use CamelCasing;
 
-    /**
-     * user
-     *
-     * @return void
-     */
+    public function getAttribute($key)
+    {
+        if (array_key_exists($key, $this->relations)) {
+            return parent::getAttribute($key);
+        } else {
+            return parent::getAttribute(Str::snake($key));
+        }
+    }
+
+    public function setAttribute($key, $value)
+    {
+        return parent::setAttribute(Str::snake($key), $value);
+    }
+
     public function user() {
         return $this->belongsTo(Post::class);
-    }
-
-    /*
-        Second Way: hard and stupid
-    */
-
-    public function postTitle() {
-        return $this->post_title;
-    }
-
-    public function postBody() {
-        return $this->post_body;
     }
 }

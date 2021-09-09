@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return User::first()->posts->first()->postTitle();
+        return User::first()->posts->first()->postTitle;
     }
 
     /**
