@@ -1,7 +1,7 @@
 # snake-to-camel-laravel
 This is an example how to get properties with camelcase (but in DB, column names in snakecase).
 
-You can check it at 3 branches (first-way, second-way) in Post Model.
+You can check it at 3 branches (first-way, second-way, third-way) in Post Model.
 
 Good way, with adding package:
 
